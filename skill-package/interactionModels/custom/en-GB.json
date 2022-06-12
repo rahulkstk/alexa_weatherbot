@@ -1,0 +1,183 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "weather bot",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "GetWeather",
+          "slots": [
+            {
+              "name": "city",
+              "type": "AMAZON.City",
+              "samples": [
+                "{city}",
+                "Please check {city}"
+              ]
+            },
+            {
+              "name": "date",
+              "type": "AMAZON.DATE"
+            }
+          ],
+          "samples": [
+            "I need the weather forecast for the {date}",
+            "Can you check the weather in {city} for me",
+            "I will go to {city} soon. Can you check the weather in there on {date}",
+            "I want to check the weather in {city} on {date}",
+            "What will the weather be like in {city} on {date}",
+            "I would like to check the weather in {city}",
+            "Can you tell me what the weather is suppose to be like on {date} in {city}",
+            "weather of {city} {date}",
+            "How about the weather in {city} on {date}",
+            "What\u0027ll the weather be like on {date}",
+            "What about {city}",
+            "What\u0027s the weather like on {date}",
+            "Please tell me the weather forecast for {date}",
+            "Do you know the weather on {date}",
+            "Check for me please the weather in {city}",
+            "Can you find me the weather in {city} for {date}",
+            "I want to check the weather for {date}",
+            "Check for me the weather in {city}",
+            "What does the weather on {date} look like",
+            "Please check the weather for me in {city} on {date}",
+            "How\u0027s the weather in {city}",
+            "Tell me the weather of {city}",
+            "Weather of {city} "
+          ]
+        },
+        {
+          "name": "GetDetails",
+          "slots": [
+            {
+              "name": "request",
+              "type": "request",
+              "multipleValues": {
+                "enabled": true
+              }
+            }
+          ],
+          "samples": [
+            "how {request} is it supossed to be",
+            "what about {request}",
+            "what about {request} speed",
+            "will it be {request}  how {request}",
+            "What about {request} and {request}",
+            "how {request} would it be"
+          ]
+        },
+        {
+          "name": "Other",
+          "slots": [],
+          "samples": [
+            "That seem nice",
+            "ok",
+            "I understand",
+            "Sounds good",
+            "Thanks.",
+            "Alright",
+            "Okay"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "wind",
+                "synonyms": [
+                  "windy"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "humidity",
+                "synonyms": [
+                  "humid"
+                ]
+              }
+            }
+          ],
+          "name": "request"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "GetWeather",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "city",
+              "type": "AMAZON.City",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.329397939950.40475878699"
+              }
+            },
+            {
+              "name": "date",
+              "type": "AMAZON.DATE",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.329397939950.40475878699",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What city would you like to check the weather?"
+          },
+          {
+            "type": "PlainText",
+            "value": "For what city?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Any particular city\u0027s weather forecast?"
+          },
+          {
+            "type": "PlainText",
+            "value": "On which city specifically?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Which city should I check it for?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "17"
+}
